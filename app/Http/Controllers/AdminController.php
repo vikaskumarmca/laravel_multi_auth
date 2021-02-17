@@ -26,5 +26,17 @@ class AdminController extends Controller
         return view('admin.home');
     }
 
+
+   
+     /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new AdminResetPasswordNotification($token));
+    }
     
 }
